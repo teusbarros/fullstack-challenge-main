@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Fullstack Challenge</RouterLink>
       </nav>
     </div>
   </header>
@@ -14,5 +14,7 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style scoped>
-
+header{
+  margin-bottom: 25px;
+}
 </style>
