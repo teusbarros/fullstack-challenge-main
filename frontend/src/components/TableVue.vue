@@ -23,7 +23,12 @@
 						<td>{{user.latitude}}</td>
 						<td>{{user.longitude}}</td>
 						<td>{{user.current_weather}}</td>
-						<td>{{user.id}}</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" :data-bs-target="'#weatherModal'+user.id">
+								+
+							</button>
+							<modal-vue :id="user.id" :title="user.name"></modal-vue>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -32,7 +37,12 @@
 </template>
 
 <script>
+	import ModalVue from "@/components/ModalVue.vue";
+
 	export default {
+		components:{
+			ModalVue,
+		},
 		data: () => ({
 			apiResponse: false,
 			users: null
@@ -41,7 +51,6 @@
 		created() {
 			this.fetchData()
 		},
-
 		methods: {
 			async fetchData() {
 				//#todo: set url as global const
