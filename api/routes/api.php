@@ -20,3 +20,12 @@ Route::get('/', function () {
         'users' => \App\Models\User::all(),
     ]);
 });
+
+Route::get('/weather/{user_id}', function ($user_id) {
+    $user = \App\Models\User::find($user_id);
+    return response()->json([
+        'message' => 'all systems are a go',
+        'user' => $user,
+        'weather' => $user->latestWeather,
+    ]);
+});
