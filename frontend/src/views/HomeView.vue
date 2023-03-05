@@ -5,8 +5,9 @@
 
 <template>
 	<main>
-		<table-vue @loadModal="getUserInfo(e)"></table-vue>
-		<div class="">
+		<div class="mb-5">
+			
 		</div>
+		<table-vue></table-vue>
 	</main>
 </template>
