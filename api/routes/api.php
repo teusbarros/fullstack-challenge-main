@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\WeatherController;
+use App\Http\Resources\WeatherResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,18 +17,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return response()->json([
-        'message' => 'all systems are a go',
-        'users' => \App\Models\User::all(),
-    ]);
-});
-
-Route::get('/weather/{user_id}', function ($user_id) {
-    $user = \App\Models\User::find($user_id);
-    return response()->json([
-        'message' => 'all systems are a go',
-        'user' => $user,
-        'weather' => $user->latestWeather,
-    ]);
-});
+Route::get('/', [UserController::class, 'index']);
+Route::get('/weather/{user}', [WeatherController::class, 'show']);
