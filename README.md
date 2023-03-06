@@ -1,5 +1,7 @@
 # Fullstack Challenge
 
+## Preview
+https://user-images.githubusercontent.com/29488656/223012546-38813b24-3853-44cf-8539-769e4ff3b0ba.mov
 ## Instructions
 Using Laravel and VueJS, create an application which shows the weather for a set of users.
 - Clone this repository. 
