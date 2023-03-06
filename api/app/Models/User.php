@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\MakeApiRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,6 +41,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static function booted(): void
+    {
+        static::created(function (User $user) {
+            MakeApiRequest::dispatch($user->id, $user->latitude, $user->longitude);
+        });
+    }
 
     public function latestWeather(): HasOne
     {

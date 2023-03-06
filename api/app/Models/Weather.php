@@ -11,6 +11,19 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class Weather extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'weather_id',
+        'main',
+        'description',
+        'temp',
+        'temp_min',
+        'temp_max',
+        'feels_like',
+        'pressure',
+        'humidity',
+        'visibility'
+    ];
     protected $casts = [
         'temp_min' => 'integer',
         'temp_max' => 'integer',

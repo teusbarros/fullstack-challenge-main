@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
-            'current_weather' => $this->latestWeather->temp,
+            'current_weather' => $this->latestWeather->temp ?? '',
         ];
     }
 }
